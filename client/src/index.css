@@ -1,9 +1,24 @@
+@font-face {
+  font-family: 'Verb';
+  src: url('./assets/fonts/Verb-Regular.woff2') format('woff2'),
+       url('./assets/fonts/Verb-Regular.woff') format('woff');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Verb';
+  src: url('./assets/fonts/Verb-Ultra.woff2') format('woff2'),
+       url('./assets/fonts/Verb-Ultra.woff') format('woff');
+  font-weight: 950;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 
   -webkit-tap-highlight-color: transparent; /*To remove the blue background when tapping on links & icons on phone*/
+  font-family: 'Verb', sans-serif;
 }
 
 *:focus,
@@ -15,6 +30,26 @@
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background: #F2F1EE;
+}
+
+#root{
+  display: flex;
+  justify-content: center;
+  
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 48px;
+}
+
+@media (max-width: 767px) {
+  #root{
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 25px;
+  }
+  
 }
 
 .noUserInteraction {
@@ -25,3 +60,4 @@ body {
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 }
+
