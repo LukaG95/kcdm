@@ -34,6 +34,11 @@ body {
   background: #F2F1EE;
 }
 
+body {
+  overflow-x: hidden;
+}
+
+
 #root{
   display: flex;
   justify-content: center;
