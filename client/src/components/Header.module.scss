@@ -7,7 +7,7 @@ header{
   margin-right: 80px;
 }
 
-nav{
+.nav{
   display: flex;
   width: 100%;
 
@@ -52,6 +52,7 @@ nav{
 
     li{
      line-height: 100%;
+     width: fit-content;
 
       a{ 
         display: block;
@@ -101,7 +102,7 @@ nav{
       height: 40px;
 
       font-size: 14px;
-      letter-spacing: 0.05em;
+      letter-spacing: 5%;
 
       border: 2px dotted #4BAC87;
       text-decoration: none;
@@ -157,7 +158,6 @@ nav{
   transform: translateY(-10px);
   pointer-events: none;
   transition: opacity 0.3s ease, transform 0.3s ease;
-
 }
 
 .searchContainer.open {
@@ -201,6 +201,8 @@ nav{
   width: 28px;
   height: 28px;
 
+  cursor: pointer;
+  
   div{
     height: 2px;
     background: #4BAC87;

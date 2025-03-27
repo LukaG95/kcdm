@@ -2,16 +2,16 @@ import { useState, useEffect } from 'react';
 import styles from './Header.module.scss';
 import LogoBig from '../assets/images/logo-big.svg';
 import LogoSmall from '../assets/images/logo-small.svg';
-import SearchIcon from '../assets/images/search-icon.png';
+import SearchIcon from '../assets/images/search-icon-green.png';
 import useWindowDimensions from '../misc/WindowDimensions.js';
 
-function Header({}){
+function Header({setIsNavMenuOpen}){
   const [hoveredItem, setHoveredItem] = useState('');
   const [activeItem, setActiveItem] = useState('AKTUALNO');
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const { s_width, s_height } = useWindowDimensions();
 
-  // This is for when the search bar will briefly appear on window width resize
+  // This is for when the search bar will briefly appear on window width upsize
   const [isTransitionEnabled, setIsTransitionEnabled] = useState(true);
   const handleSearchToggle = () => {
     if (isSearchOpen) {
@@ -71,11 +71,11 @@ function Header({}){
         
       </div>
 
-      <nav>
+      <nav className={styles.nav}>
         {
-          s_width >= 1050 &&
+          s_width >= 900 &&
           <>
-           <div className={styles['line-with-arrow']}>
+            <div className={styles['line-with-arrow']}>
               <div
                 className={styles.arrow}
                 style={{ top: getArrowTop() }}
@@ -118,20 +118,20 @@ function Header({}){
 
         <div className={styles['extra-options']}>
           {
-            s_width >= 1050 ? 
+            s_width >= 900 ? 
             <>
               <div className={`${styles.searchContainer} ${isSearchOpen ? styles.open : ''}`} style={{ transition: isTransitionEnabled ? undefined : 'none' }}>
                 <input type="text" placeholder="Iskanje..." className={styles.searchInput} />
                 <button onClick={handleSearchToggle} className={styles.closeSearch}>✖</button>
               </div>
               <img onClick={handleSearchToggle} src={SearchIcon} alt="Search" />
-              <div href="#" className={styles['platform']}>PLATFORMA DNA</div>
+              <div href="#" className={styles.platform}>PLATFORMA DNA</div>
               <div className={styles.spacer}></div>
               <a href="#" className={styles['lang']}>ENG</a>
             </> : 
             <>
               <div className={styles.spacer2}></div>
-              <div className={styles.hamburgerMenu}>
+              <div className={styles.hamburgerMenu} onClick={() => setIsNavMenuOpen(prev => !prev)}>
                 <div></div>
                 <div></div>
                 <div></div>
