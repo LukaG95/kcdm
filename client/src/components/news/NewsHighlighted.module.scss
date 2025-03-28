@@ -1,27 +1,32 @@
-article{ 
+.newsItem{ 
   display: flex;
   flex-direction: column;
 
-  padding-right: 20px;
-
-  & > :not(img) {
-    padding-left: 170px;
-  }
+  margin-bottom: 35px;
 
   >img {
-    max-width: 601px;
+    min-width: 601px;
     width: 100%;
     height: auto;
     align-self: flex-end;
+
+    margin-bottom: 15px;
   }
 
-  > h1{
+  > h1 {
     font-weight: 950;
     font-size: 52px;
-    letter-spacing: -0.02em;
-    text-decoration: underline dotted #4BAC87;
-
+    letter-spacing: -0.02em; 
+    line-height: 90%;
     color: #4BAC87;
+
+    margin-bottom: 20px;
+  }
+
+  .newsTitleLink {
+    text-decoration: underline dotted #4BAC87;
+    color: inherit; 
+    
   }
 
   > time{
@@ -32,6 +37,8 @@ article{
     text-transform: uppercase;
   
     color: #737A77;
+
+    margin-bottom: 8px;
   }
 
   .description{
@@ -41,5 +48,14 @@ article{
     font-size: 32px;
     line-height: 110%;
     color: #3D5F52;
+
+    margin-bottom: 20px;
+  }
+
+  .spacer{
+    width: auto;
+    padding-left: 30px;
+    height: 1px;
+    background: #4BAC87;
   }
 }

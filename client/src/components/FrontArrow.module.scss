@@ -1,0 +1,54 @@
+.front-link {
+  display: flex;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  gap: 7px;
+  text-decoration: none;
+
+
+  transition: all 0.3s ease;
+
+  &:hover {
+    .arrow {
+      transform: translateX(3px);
+    }
+  }
+
+  z-index: 2;
+}
+
+.arrow {
+  display: flex;
+  align-items: center;
+  height: 16px;
+  transition: transform 0.2s ease;
+}
+
+.arrowHead {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 4px 0 4px 7px; 
+  border-color: transparent transparent transparent #4BAC87; 
+}
+
+.arrowLine {
+  width: 37px;
+  height: 2px;
+  background-color: #4BAC87; 
+}
+
+.text {
+  border-bottom: 1px dotted #4BAC87;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+
+  color: #4BAC87;
+}

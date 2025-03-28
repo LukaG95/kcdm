@@ -3,10 +3,14 @@ import styles from './Body.module.scss';
 import useWindowDimensions from '../misc/WindowDimensions.js';
 import Stripes from '../assets/images/stripes.svg';
 import BackArrow from './BackArrow.js';
-import { newsData } from '../assets/news/newsData.js';
+import FrontArrow from './FrontArrow.js';
+import { newsData } from '../assets/data/newsData.js';
+import { eventsData } from '../assets/data/eventsData.js';
 
 import NewsHighlighted from './news/NewsHighlighted.js';
 import NewsFull from './news/NewsFull.js';
+import NewsSmall from './news/NewsSmall.js';
+import EventSmall from './events/EventSmall.js';
 
 function Body() {
   const { s_width } = useWindowDimensions();
@@ -40,7 +44,11 @@ function Body() {
           <BackArrow route={"/"} name={"AKTUALNO"} mobile={false} isHomePage={isHomePage}/>
         </div>
         <div className={styles.right}>
+          {location.pathname.startsWith('/novice/') ? 
+            <BackArrow route={"/novice"} name={"NOVICE"} mobile={false} isHomePage={isHomePage} on_news={true}/>
+          :
           <h1>{getPageTitle()}</h1>
+          }
         </div>
       </header>
 
@@ -81,18 +89,73 @@ function Body() {
           </ul>
         </nav>
 
-        <div className={styles.test}>
-        {
-          newsData.map(news => (<NewsHighlighted key={news.id} news={news} />))
-        }
+        <div className={styles["news-wrapper"]} style={{top: topOffset()}} >
+        
+          {isHomePage ? (
+            // Home page
+            <>
+              {
+                newsData.filter(news => news.highlighted).map(news => (
+                <NewsHighlighted key={news.id} news={news} />
+              ))
+              }
+              <section>
+                <div className={styles["section-aktualno"]}>
+                  <h2>AKTUALNO</h2>
+                  <div className={styles.spacer}></div>
+                  {
+                    newsData.sort((a, b) => b.trending_score - a.trending_score).slice(0, 5).map((news, i) => (
+                      <NewsSmall key={news.id} news={news} extraSmall={false} useAnimation={i === 0}/>
+                    ))
+                  }
+                  <FrontArrow route={"/novice"} name={"VEČ NOVIC"} />
+                </div>
+                <div className={styles["section-napovedujemo"]}>
+                  <h2>NAPOVEDUJEMO</h2>
+                  <div className={styles.spacer}></div>
+                  {
+                    eventsData.map((event, i) => (
+                      <EventSmall key={event.id} event={event} />
+                    ))
+                  }
+                  <FrontArrow route={"/prihajajoci-dogodki"} name={"VEČ DOGODKOV"} />
+                </div>
+              </section>
+            </>
+      
+          ) : location.pathname.startsWith('/novice/') ? (
+            // Certain news page
+            newsData.filter(news => news.id == location.pathname.split('/')[2]).map(news => (
+              <NewsFull key={news.id} news={news} />
+            ))
+          ) : location.pathname.startsWith('/novice') ? (
+            // News page
+            newsData.map((news, i) => (
+              <NewsSmall key={news.id} news={news} extraSmall={true} useAnimation={i === 1}/>
+            ))
+          ) : location.pathname.startsWith('/prihajajoci-dogodki') ? (
+            // Upcoming events page
+            <></>
+          ) : location.pathname.startsWith('/pretekli-dogodki') ? (
+            // Past events page
+            <></>
+          ) : null}
+
         </div>
         
       </div>
       
-      
+     
       <div className={`${styles.spacer} ${!isHomePage ? styles.lessHeight : ''}`}></div>
     </main>
   );
+
+  function topOffset(){
+    if (isHomePage) return "125px";
+    else if (location.pathname.startsWith('/novice/')) return "100px";
+    else if (location.pathname.startsWith('/novice')) return "250px";
+    else return "0px";
+  }
 }
 
 export default Body;

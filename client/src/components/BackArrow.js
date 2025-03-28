@@ -2,12 +2,12 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './BackArrow.module.scss'
 
-function BackArrow({route, name, mobile, isHomePage}) {
+function BackArrow({route, name, mobile, isHomePage, on_news}) {
   
   return (
     <Link 
       to={route}
-      className={`${styles.backLink} ${!isHomePage ? styles.visible : ''} ${mobile ? styles.mobile : ''}`}
+      className={`${styles.backLink} ${!isHomePage ? styles.visible : ''} ${mobile ? styles.mobile : ''} ${on_news ? styles["on-news-page"] : ''}`}
       style={{ display: isHomePage ? 'none' : 'flex' }}
     >
       <div className={styles.arrow}>
