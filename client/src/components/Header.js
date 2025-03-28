@@ -61,7 +61,7 @@ function Header({setIsNavMenuOpen}){
 
   return (
     <header>
-      <div className={styles.logo}>
+      <div className={styles.logo} onClick={() => (window.location.href = "/")}>
         {
           s_width > 767 ? 
           <img src={LogoBig} alt="Big Logo" />
