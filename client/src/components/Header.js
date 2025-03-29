@@ -60,7 +60,7 @@ function Header({setIsNavMenuOpen}){
 
 
   return (
-    <header>
+    <header className={styles.header}>
       <div className={styles.logo} onClick={() => (window.location.href = "/")}>
         {
           s_width > 767 ? 

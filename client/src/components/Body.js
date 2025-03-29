@@ -43,17 +43,20 @@ function Body() {
           />
           <BackArrow route={"/"} name={"AKTUALNO"} mobile={false} isHomePage={isHomePage}/>
         </div>
-        <div className={styles.right}>
-          {location.pathname.startsWith('/novice/') ? 
-            <BackArrow route={"/novice"} name={"NOVICE"} mobile={false} isHomePage={isHomePage} on_news={true}/>
-          :
-          <h1>{getPageTitle()}</h1>
-          }
-        </div>
+        {
+          s_width > 767 && 
+            <div className={styles.right}>
+              {location.pathname.startsWith('/novice/') ? 
+                <BackArrow route={"/novice"} name={"NOVICE"} mobile={false} isHomePage={isHomePage} on_news={true}/>
+              :
+              <h1>{getPageTitle()}</h1>
+              }
+            </div>
+        }
       </header>
 
    
-      { s_width < 1050 && 
+      { s_width <= 767 && 
           <div className={styles["back-nav-or-title"]}>
             <div className={styles.spacer2}></div>
             { isHomePage ? 
@@ -63,12 +66,12 @@ function Body() {
           </div>
       }
 
-      <div style={{display: "flex"}}>
+      <div className={styles["bottom-layout"]}>
 
         <nav className={styles.nav}>
           <ul>
             {navItems.map((item) => {
-              const isActive = location.pathname === item.path;
+              const isActive = location.pathname.includes(item.path);
               return (
                 <li 
                   key={item.path}
@@ -89,7 +92,7 @@ function Body() {
           </ul>
         </nav>
 
-        <div className={styles["news-wrapper"]} style={{top: topOffset()}} >
+        <div className={styles["news-wrapper"]} style={{transform: `translateY(${topOffset()})`}} >
         
           {isHomePage ? (
             // Home page
@@ -110,6 +113,9 @@ function Body() {
                   }
                   <FrontArrow route={"/novice"} name={"VEČ NOVIC"} />
                 </div>
+                {
+                  s_width <= 561 && <div className={styles.spacer}></div>
+                }
                 <div className={styles["section-napovedujemo"]}>
                   <h2>NAPOVEDUJEMO</h2>
                   <div className={styles.spacer}></div>
@@ -151,9 +157,9 @@ function Body() {
   );
 
   function topOffset(){
-    if (isHomePage) return "125px";
-    else if (location.pathname.startsWith('/novice/')) return "100px";
-    else if (location.pathname.startsWith('/novice')) return "250px";
+    if (isHomePage) return "-100px";
+    else if (location.pathname.startsWith('/novice/')) return "-120px";
+    else if (location.pathname.startsWith('/novice')) return "35px";
     else return "0px";
   }
 }

@@ -1,11 +1,11 @@
-header{
+.header{
   display: flex;
-
 }
 
 .logo{
   margin-right: 80px;
   cursor: pointer;
+
 }
 
 .nav{
@@ -209,3 +209,21 @@ header{
     background: #4BAC87;
   }
 }
+
+@media (max-width: 1050px) {
+  .header{
+    padding: 0px 15px;
+
+ 
+  }
+}
+
+
+@media (max-width: 900px) {
+  .header{
+    .logo{
+      margin-right: 30px;
+    }
+  }
+}
+

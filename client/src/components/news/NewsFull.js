@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './NewsFull.module.scss';
+import Union from '../../assets/images/union.svg';
 
 const NewsFull = ({ news }) => {
 
@@ -69,9 +70,9 @@ const NewsFull = ({ news }) => {
         trajnostnega oblikovanja, načrtovanja uporabniških izkušenj, upravljanja uporabniških poti in stičnih točk 
         znamke z uporabniki, design razmišljanja in design vodenja podjetju omogoča vrsto prednosti pred konkurenti.
       </p>
-      <div className={styles.quote}>
+      <blockquote className={styles["quote-text"]}>
         This is the Highlight. Lorem ipsum gulih dolor sit amet consectetur. Lorem ipsum dolor sit amet consectetur. 
-      </div>
+      </blockquote>
       <h5 className={styles.subHeader2}>To je mednaslov 2 lorem ipsum dolor sit amet consiliqur malanga </h5>
       <p className={styles.regular_text} style={{marginBottom: "10px"}}>
         Celostno razumevanje in učinkovito upravljanje področij designa: design raziskav, storitvenega oblikovanja, 
@@ -83,9 +84,17 @@ const NewsFull = ({ news }) => {
         trajnostnega oblikovanja, načrtovanja uporabniških izkušenj, upravljanja uporabniških poti in stičnih točk 
         znamke z uporabniki, design razmišljanja in design vodenja podjetju omogoča vrsto prednosti pred konkurenti.
       </p>
-      <div className={styles.quote}>
-        This is the Highlight. Lorem ipsum gulih dolor sit amet consectetur. Lorem ipsum dolor sit amet consectetur. 
-      </div>
+      <blockquote className={styles.quote2}>
+        <img src={Union} alt="Union" className={`${styles["union-icon"]} ${styles.rotate}`}/>
+        <img src={Union} alt="Union" className={`${styles["union-icon"]} ${styles.rotate}`} style={{marginRight: "20px"}}/>
+        <img src={Union} alt="Union" className={styles["union-icon"]}/>
+        <img src={Union} alt="Union" className={styles["union-icon"]}/>
+        <p className={styles["quote-text"]}>This is the Highlight. Lorem ipsum gulih dolor sit amet consectetur. Lorem ipsum dolor sit amet consectetur.</p>
+        <div style={{display: "flex", alignItems: "center"}}>
+          <div className={styles["author-line"]}></div>
+          <cite className={styles.author}>Jaka Jaklič, Podjetje d.o.o.</cite>
+        </div>
+      </blockquote>
       <p className={styles.regular_text} style={{marginBottom: "10px"}}>
         Celostno razumevanje in učinkovito upravljanje področij designa: design raziskav, storitvenega oblikovanja, 
         trajnostnega oblikovanja, načrtovanja uporabniških izkušenj, upravljanja uporabniških poti in stičnih točk 

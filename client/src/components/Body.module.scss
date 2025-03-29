@@ -2,10 +2,12 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  width: 100%;
   
   margin-top: 15px;
 
   .news-header{
+    display: flex;
     position: relative;
     width: 100%;
     height: 217px;
@@ -66,76 +68,142 @@
     }
   }
 
-  .nav{
-    width: 248px;
+  .bottom-layout{
+    display: flex;
 
-    ul{
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      padding-right: 27px;
-      list-style: none;
-      align-items: end;
+    .nav{
+      min-width: 248px;
   
-      li{
-        position: relative;
-        line-height: 100%;
-        width: fit-content;
-
-        padding: 9px 0px;
-        width: 134px;
-        text-transform: uppercase;
-
-        border-bottom: 1px solid #D8D7D3;
-
-        a{ 
-          display: flex;
-          padding: 0;
-          margin: 0;
-          line-height: 1.2;
+      ul{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding-right: 27px;
+        list-style: none;
+        align-items: end;
+    
+        li{
+          position: relative;
+          line-height: 100%;
+          width: fit-content;
   
-          text-decoration: none;
-          font-size: 14px;
-          
-          font-weight: 950;
-          letter-spacing: 5%;
-          color: #4BAC87;
+          padding: 9px 0px;
+          width: 134px;
+          text-transform: uppercase;
   
-          transition: color 0.3s ease-in-out;
-
-          height: 100%;
+          border-bottom: 1px solid #D8D7D3;
   
-          &:hover {
-            color: #318565;
+          a{ 
+            display: flex;
+            padding: 0;
+            margin: 0;
+            line-height: 1.2;
+    
+            text-decoration: none;
+            font-size: 14px;
+            
+            font-weight: 950;
+            letter-spacing: 5%;
+            color: #4BAC87;
+    
+            transition: color 0.3s ease-in-out;
+  
+            height: 100%;
+    
+            &:hover {
+              color: #318565;
+            }
+  
+            &.activeLink {
+              color: #318565;
+            }
           }
-
-          &.activeLink {
-            color: #318565;
+  
+          .indicator{
+            position: absolute;
+            display: none;
+            top: 0px;
+            left: -15px;
+  
+            width: 6px;
+            height: 100%;
+  
+            background: #4BAC87;
+  
+            &.visible {
+              display: block;
+            }
           }
         }
-
-        .indicator{
-          position: absolute;
-          display: none;
-          top: 0px;
-          left: -15px;
-
-          width: 6px;
-          height: 100%;
-
-          background: #4BAC87;
-
-          &.visible {
-            display: block;
-          }
+  
+        li:last-child {
+          border-bottom: none;
         }
-      }
-
-      li:last-child {
-        border-bottom: none;
       }
     }
+
+    .news-wrapper{
+      position: relative;
+      max-width: 722px;
+      min-width: 0px;
+      width: 100%;
+  
+      padding-left: 170px; 
+      padding-right: 30px;
+      padding-bottom: 74px;
+  
+      section{
+        display: flex;
+        justify-content: space-between;
+  
+        gap: 30px;
+
+        .section-aktualno{
+          width: 294px;
+          height: 500px;
+          
+        }
+  
+        .section-napovedujemo{
+          width: 186px;
+          height: 500px;
+        }
+
+        >.spacer{
+          width: 100%;
+          height: 1px;
+          background: #4BAC87;
+
+          margin-top: 45px;
+        }
+  
+        .section-aktualno, .section-napovedujemo{
+  
+          > h2{
+            font-weight: 950;
+            font-size: 14px;
+            line-height: 17px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+  
+            color: #75726E;
+          }
+  
+          >.spacer{
+            width: 100%;
+            height: 1px;
+            background: #D8D7D3;
+  
+            margin-top: 15px;
+            margin-bottom: 9px;
+          }
+        }
+      }
+  
+    }
   }
+
+
   
   >.spacer{
     position: absolute;
@@ -170,54 +238,7 @@
     }
   }
 
-  .news-wrapper{
-    position: absolute;
-    right: 0px;
-    max-width: 722px;
 
-    padding-left: 170px; 
-    padding-right: 30px;
-    padding-bottom: 74px;
-
-    section{
-      display: flex;
-      justify-content: space-between;
-
-      .section-aktualno{
-        width: 294px;
-        height: 500px;
-        
-      }
-
-      .section-napovedujemo{
-        width: 186px;
-        height: 500px;
-      }
-
-      .section-aktualno, .section-napovedujemo{
-
-        > h2{
-          font-weight: 950;
-          font-size: 14px;
-          line-height: 17px;
-          letter-spacing: 0.05em;
-          text-transform: uppercase;
-
-          color: #75726E;
-        }
-
-        >.spacer{
-          width: 100%;
-          height: 1px;
-          background: #D8D7D3;
-
-          margin-top: 15px;
-          margin-bottom: 9px;
-        }
-      }
-    }
-
-  }
   
 
   //--------------------------- RESPONSIVE -----------------------
@@ -234,54 +255,103 @@
       .left{
         display: none;
       }
+
+      .right{
+        padding-left: 70px;
+ 
+      }
     } 
 
-    .nav {
+    .bottom-layout{
       order: 1;
-      width: unset;
-      width: 100vw;
+      position: relative;
 
-      overflow-x: scroll;
-
-      ul{
-        flex-direction: row;
-        padding-right: 0;
-        width: fit-content;
-        height: 84px;
-
+      .nav {
+        width: unset;
+        width: 100vw;
+        height: fit-content;
+  
         overflow-x: scroll;
-
-        li{
-          position: relative;
-          min-width: 140px;
-          height: 100%;
-    
-          padding-top: 0;
-          padding-bottom: 0;
-          border-right: 1px solid #D8D7D3;
-          border-bottom: none;
-
-          a{
-            padding-left: 10px;
-          }
-          .indicator{
-            &.visible {
-              top: unset;
-              bottom: 0px;
-
-              left: 0px;
-              width: 100%;
-              //left: 10px;
-              //width: calc(100% - 10px);
-              height: 6px;
+  
+        ul{
+          flex-direction: row;
+          padding-right: 0;
+          width: fit-content;
+          height: 84px;
+  
+          overflow-x: scroll;
+  
+          li{
+            position: relative;
+            min-width: 140px;
+            height: 100%;
+      
+            padding-top: 0;
+            padding-bottom: 0;
+            border-right: 1px solid #D8D7D3;
+            border-bottom: none;
+  
+            a{
+              padding-left: 10px;
+            }
+            .indicator{
+              &.visible {
+                top: unset;
+                bottom: 0px;
+  
+                left: 0px;
+                width: 100%;
+                height: 6px;
+              }
             }
           }
         }
       }
+
+      .news-wrapper{
+        position: absolute;
+        top: 300px;
+        left: 70px;
+        right: 170px;
+        
+        max-width: 601px;
+        width: auto;
+
+        padding: 0;
+        z-index: 2;
+
+      }
     }
 
-    .spacer{
+    >.spacer{
       display: none;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .bottom-layout{
+      .news-wrapper{
+        top: 215px;
+        left: 20px;
+        right: 20px;
+
+      }
+    }
+  }
+
+  @media (max-width: 561px) {
+    .bottom-layout{
+      .news-wrapper{
+        section{
+          flex-direction: column;
+
+          .section-aktualno, .section-napovedujemo{
+            width: 100%;
+            height: fit-content;
+          }
+        }
+        
+      }
     }
   }
 

@@ -157,7 +157,7 @@
     margin-bottom: 15px;
   }
 
-  .quote{
+  >.quote-text{
     display: flex;
     align-items: center;
     height: 128px;
@@ -173,7 +173,45 @@
     margin-bottom: 15px;
   }
 
+  .quote2{
+    border-left: 5px solid #D8D7D3;
+    padding: 20px 0px 20px 20px;
+    margin-top: 10px;
+    margin-bottom: 20px;
 
+    .union-icon{
+      margin-right: 5px;
 
+      &.rotate{
+        transform: rotate(180deg);
+      }
+    }
 
+    .author-line{
+      width: 46px;
+      height: 1px;
+      background: #D8D7D3;
+      margin-right: 10px;
+    }
+
+    .quote-text{
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 150%;
+      
+      color: #E7745E;
+      margin-top: 10px;
+      margin-bottom: 30px;
+    }
+
+    .author{
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 150%;
+
+      color: #222E29;
+    }
+ 
+  }
 }

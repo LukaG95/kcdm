@@ -5,8 +5,7 @@
   margin-bottom: 35px;
 
   >img {
-    min-width: 601px;
-    width: 100%;
+    width: calc(100% + 0px);
     height: auto;
     align-self: flex-end;
 
@@ -22,7 +21,7 @@
 
     margin-bottom: 20px;
   }
-
+ 
   .newsTitleLink {
     text-decoration: underline dotted #4BAC87;
     color: inherit; 
@@ -58,4 +57,21 @@
     height: 1px;
     background: #4BAC87;
   }
+
+  @media (max-width: 1050px) {    
+    >img{
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 600px) {    
+    >h1{
+      font-size: 32px;
+    }
+
+    .description{
+      font-size: 24px;
+    }
+  }
 }
+
