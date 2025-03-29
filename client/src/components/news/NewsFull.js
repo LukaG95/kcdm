@@ -37,7 +37,7 @@ const NewsFull = ({ news }) => {
       </p>
       <div className={styles.spacer} style={{width: "100%"}}></div>
       <h6 className={styles["video-title"]}>TO JE NASLOV VIDEA</h6>
-      <img className={styles["youtube_image"]} src={news.img2} alt="Youtube image" />
+      <img className={styles["youtube-image"]} src={news.img2} alt="Youtube image" />
       <h4 className={styles.subHeader1}>To je mednaslov 1 lorem ipsum dolor sit amet consiliqur malanga </h4>
       <p className={styles.regular_text} style={{marginBottom: "10px"}}>
         Celostno razumevanje in učinkovito upravljanje področij designa: design raziskav, storitvenega oblikovanja, 
@@ -70,8 +70,8 @@ const NewsFull = ({ news }) => {
         trajnostnega oblikovanja, načrtovanja uporabniških izkušenj, upravljanja uporabniških poti in stičnih točk 
         znamke z uporabniki, design razmišljanja in design vodenja podjetju omogoča vrsto prednosti pred konkurenti.
       </p>
-      <blockquote className={styles["quote-text"]}>
-        This is the Highlight. Lorem ipsum gulih dolor sit amet consectetur. Lorem ipsum dolor sit amet consectetur. 
+      <blockquote className={styles.quote}>
+        <p className={styles["quote-text"]}>This is the Highlight. Lorem ipsum gulih dolor sit amet consectetur. Lorem ipsum dolor sit amet consectetur.</p>
       </blockquote>
       <h5 className={styles.subHeader2}>To je mednaslov 2 lorem ipsum dolor sit amet consiliqur malanga </h5>
       <p className={styles.regular_text} style={{marginBottom: "10px"}}>
@@ -84,7 +84,7 @@ const NewsFull = ({ news }) => {
         trajnostnega oblikovanja, načrtovanja uporabniških izkušenj, upravljanja uporabniških poti in stičnih točk 
         znamke z uporabniki, design razmišljanja in design vodenja podjetju omogoča vrsto prednosti pred konkurenti.
       </p>
-      <blockquote className={styles.quote2}>
+      <blockquote className={[styles.quote, styles.extra].join(" ")}>
         <img src={Union} alt="Union" className={`${styles["union-icon"]} ${styles.rotate}`}/>
         <img src={Union} alt="Union" className={`${styles["union-icon"]} ${styles.rotate}`} style={{marginRight: "20px"}}/>
         <img src={Union} alt="Union" className={styles["union-icon"]}/>

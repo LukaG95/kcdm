@@ -31,6 +31,27 @@ function Body() {
     return '';
   };
 
+
+  /*
+    /
+    no buttons
+    desktop: header page title
+    mobile: upper page title
+
+    /novice
+    desktop: header <- aktualno
+    mobile: upper <- aktualno
+    show page title
+
+    /novice/id
+    desktop: <- aktualno <- novice
+    mobile: <- novice
+    no page titles
+
+  */
+
+  
+
   return (
     <main className={styles["news-page"]}>
       <header className={styles["news-header"]}>
@@ -44,7 +65,7 @@ function Body() {
           <BackArrow route={"/"} name={"AKTUALNO"} mobile={false} isHomePage={isHomePage}/>
         </div>
         {
-          s_width > 767 && 
+          (s_width > 767 || location.pathname.startsWith('/novice')) && 
             <div className={styles.right}>
               {location.pathname.startsWith('/novice/') ? 
                 <BackArrow route={"/novice"} name={"NOVICE"} mobile={false} isHomePage={isHomePage} on_news={true}/>
@@ -56,7 +77,8 @@ function Body() {
       </header>
 
    
-      { s_width <= 767 && 
+      { 
+        (s_width <= 1050 && !location.pathname.startsWith('/novice/')) && 
           <div className={styles["back-nav-or-title"]}>
             <div className={styles.spacer2}></div>
             { isHomePage ? 
@@ -68,29 +90,32 @@ function Body() {
 
       <div className={styles["bottom-layout"]}>
 
-        <nav className={styles.nav}>
-          <ul>
-            {navItems.map((item) => {
-              const isActive = location.pathname.includes(item.path);
-              return (
-                <li 
-                  key={item.path}
-                  className={isActive ? styles.activeItem : ''}
-                >
-                  <div 
-                    className={`${styles.indicator} ${isActive ? styles.visible : ''}`}
-                  ></div>
-                  <Link
-                    to={item.path}
-                    className={isActive ? styles.activeLink : ''}
+        { !(location.pathname.startsWith('/novice/') && s_width <= 767) &&
+          <nav className={styles.nav}>
+            <ul>
+              {navItems.map((item) => {
+                const isActive = location.pathname.includes(item.path);
+                return (
+                  <li 
+                    key={item.path}
+                    className={isActive ? styles.activeItem : ''}
                   >
-                    {item.text}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
+                    <div 
+                      className={`${styles.indicator} ${isActive ? styles.visible : ''}`}
+                    ></div>
+                    <Link
+                      to={item.path}
+                      className={isActive ? styles.activeLink : ''}
+                    >
+                      {item.text}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
+        }
+        
 
         <div className={styles["news-wrapper"]} style={{transform: `translateY(${topOffset()})`}} >
         
@@ -157,10 +182,19 @@ function Body() {
   );
 
   function topOffset(){
-    if (isHomePage) return "-100px";
-    else if (location.pathname.startsWith('/novice/')) return "-120px";
-    else if (location.pathname.startsWith('/novice')) return "35px";
-    else return "0px";
+    if (isHomePage) {
+      return "-100px";
+    }
+    else if (location.pathname.startsWith('/novice/')) {
+      return "-120px";
+    }
+    else if (location.pathname.startsWith('/novice')) {
+      if (s_width <= 767) return "100px"
+      return "35px";
+    }
+    else {
+      return "0px";
+    }
   }
 }
 

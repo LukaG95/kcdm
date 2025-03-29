@@ -81,3 +81,21 @@
   line-height: 1.1;
 
 }
+
+@media (max-width: 1050px) {    
+  .backLink{
+    &.on-news-page{
+      top: unset;
+      left: 70px;
+    }
+  }
+}
+
+@media (max-width: 767px) {    
+  .backLink{
+    &.on-news-page{
+      top: 40px;
+      left: 20px;
+    }
+  }
+}

@@ -145,7 +145,6 @@
     .news-wrapper{
       position: relative;
       max-width: 722px;
-      min-width: 0px;
       width: 100%;
   
       padding-left: 170px; 
@@ -223,6 +222,7 @@
   .back-nav-or-title{
     margin-top: 15px;
     height: 100px;
+    padding-left: 20px;
 
     .spacer2{
       background: #4BAC87;
@@ -258,7 +258,6 @@
 
       .right{
         padding-left: 70px;
- 
       }
     } 
 
@@ -329,6 +328,12 @@
   }
 
   @media (max-width: 767px) {
+    .news-header{
+      .right{
+        padding-top: 20px;
+        padding-left: 20px;
+      }
+    }
     .bottom-layout{
       .news-wrapper{
         top: 215px;
