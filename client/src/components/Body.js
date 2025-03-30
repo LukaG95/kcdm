@@ -133,7 +133,7 @@ function Body() {
                   <div className={styles.spacer}></div>
                   {
                     newsData.sort((a, b) => b.trending_score - a.trending_score).slice(0, 5).map((news, i) => (
-                      <NewsSmall key={news.id} news={news} extraSmall={false} useAnimation={i === 0}/>
+                      <NewsSmall key={news.id} news={news} big={false} useAnimation={i === 0}/>
                     ))
                   }
                   <FrontArrow route={"/novice"} name={"VEČ NOVIC"} />
@@ -162,7 +162,7 @@ function Body() {
           ) : location.pathname.startsWith('/novice') ? (
             // News page
             newsData.map((news, i) => (
-              <NewsSmall key={news.id} news={news} extraSmall={true} useAnimation={i === 1}/>
+              <NewsSmall key={news.id} news={news} big={true} useAnimation={i === 1}/>
             ))
           ) : location.pathname.startsWith('/prihajajoci-dogodki') ? (
             // Upcoming events page

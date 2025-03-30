@@ -1,0 +1,275 @@
+.footer{
+
+  .spacer{
+    height: 8px;
+    width: 100%;
+    background: #D8D7D3;
+
+    &.small{
+      height: 2px;
+      margin-top: 15px;
+    }
+  }
+
+  .firstSection, .secondSection, .thirdSection{
+    display: flex;
+    padding: 20px 0px;
+  }
+
+  .firstSection{
+    display: flex;
+
+    .socialMedia{
+      max-width: 410px;
+      width: 100%;
+    }
+  
+    .socialMedia .title, .newsletter .title{
+      font-weight: 950;
+      font-size: 14px;
+      line-height: 17px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+  
+      margin-bottom: 17px;
+    }
+  
+    .socialMedia{
+      .icons{
+        display: flex;
+  
+        .icon{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          
+          height: 48px;
+          width: 48px;
+          background: #4BAC87;
+  
+          border-radius: 100%;
+  
+          margin-right: 12px;
+        }
+      }
+    }
+  
+    .newsletter{  
+      width: 100%;
+
+      .newsletterForm{
+        position: relative;
+
+        input{
+          min-width: 300px;
+          height: 48px;
+          background: #ffffff;
+          width: 100%;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 120%;
+
+          padding-left: 15px;
+          border: 1px solid #D8D7D3;
+
+          margin-bottom: 10px;
+
+          &:hover,
+          &:focus {
+            border-color: #3a826d;
+            box-shadow: 0 0 8px rgba(58, 130, 109, 0.3);
+            outline: none;
+          }
+        }
+
+        button{
+          position: absolute;
+          right: 0px;
+        } 
+
+      }
+      
+      .termsCheckbox{
+        display: flex;
+        align-items: center;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 120%;
+        color: #737A77;
+
+        cursor: pointer;
+        width: fit-content;
+
+        .checkbox {
+          width: 20px;
+          height: 20px;
+          background: #ffffff;
+          border: 1px solid #D8D7D3;
+          margin-right: 8px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: background 0.05s ease, border-color 0.05s ease;
+          position: relative;
+        }
+      
+        .checked {
+          background: #4BAC87;
+          border-color: #3b8a6c;
+        }
+      
+        .checkmark {
+          font-size: 14px;
+          color: white;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          transition: opacity 0.05s ease-in-out;
+        }
+
+      }
+    }
+
+  }
+
+  .secondSection{
+
+    .archive{
+      width: 410px;
+      
+      .archiveTitle{
+        font-weight: 950;
+        font-size: 14px;
+        line-height: 120%;
+        color: #4BAC87;
+      }
+
+      .archiveText{
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 120%;
+        color: #737A77;
+
+        padding-right: 70px;
+      }
+    }
+
+    .partners{
+      display: flex;
+      align-items: center;
+
+      width: max-content;
+      height: fit-content;
+
+      .partnerLogoSlo{
+        border-right: 1px solid #D8D7D3;
+        padding-right: 25px;
+      }
+       
+    
+    
+      .partnerLogoSklad{
+        margin-left: 20px;
+      
+      }
+    }
+
+  }
+
+  .thirdSection{
+    display: flex;
+    flex-direction: column;
+
+    .copyright, .designCredit{
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 140%;
+
+      color: #737A77;
+
+      .legalLink{
+        color: #4BAC87;
+        cursor: pointer;
+      }
+    }
+
+    .designCredit{
+      display: flex;
+      align-items: center;
+      color: #4BAC87;
+      margin-top: 3px;
+      flex-wrap: wrap;
+
+      border: 1px solid red;
+
+      img{
+        margin-left: 5px;
+      }
+    }
+  }
+
+
+  @media (max-width: 1050px) {
+    padding: 0px 20px;
+  }
+
+  @media (max-width: 930px) {
+    .secondSection{
+      flex-direction: column;
+
+      .archive{
+        width: 100%;
+        padding-bottom: 20px;
+      }
+
+      .partners{
+        padding-top: 10px;
+        width: 100%;
+
+
+        >img{
+          height: auto;
+          width: 100%;
+          flex-shrink: 1;
+        }
+
+        .partnerLogoSlo{
+          max-width: 272px;
+          min-width: 200px;
+
+          padding-right: 25px;
+        }
+        
+        .partnerLogoSklad{
+          max-width: 142px;
+          min-width: 100px;
+          margin-left: 20px;
+        }
+
+       
+
+        
+      }
+
+    }
+  }
+
+  @media (max-width: 767px) {
+    .firstSection{
+      flex-direction: column;
+
+      .newsletter{
+        padding-bottom: 13px;
+        margin-bottom: 13px;
+        border-bottom: 1px solid #D8D7D3;
+      }
+
+      .socialMedia{
+        order: 2;
+        max-width: unset; 
+        width: 100%;
+      }
+    }
+  }
+}

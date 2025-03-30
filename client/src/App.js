@@ -5,6 +5,7 @@ import styles from './App.module.scss';
 import 'react-toastify/dist/ReactToastify.css';
 import useWindowDimensions from './misc/WindowDimensions';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import Body from './components/Body';
 import NavMenu from './components/NavMenu';
 import SearchMenu from './components/SearchMenu';
@@ -31,6 +32,7 @@ function App() {
         <div className={styles.dimensions}>{s_width}</div>
         <Header s_width={s_width} setIsNavMenuOpen={setIsNavMenuOpen}/>
         <Body />
+        <Footer />
       </div>
 
       <NavMenu isNavMenuOpen={isNavMenuOpen} setIsSearchMenuOpen={setIsSearchMenuOpen} closeMenu={closeMenu}/>
@@ -40,3 +42,19 @@ function App() {
 }
 
 export default App;
+
+
+/* return (
+  <div className={styles.app}>
+    <Header s_width={s_width} setIsNavMenuOpen={setIsNavMenuOpen} />
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/novice" element={<Novice />} />
+      <Route path="/novice/:id" element={<NoviceDetail />} />
+    </Routes>
+    <Footer />
+    <NavMenu isNavMenuOpen={isNavMenuOpen} setIsSearchMenuOpen={setIsSearchMenuOpen} closeMenu={closeMenu} />
+    <SearchMenu isSearchMenuOpen={isSearchMenuOpen} closeMenu={closeMenu} />
+  </div>
+);
+ */
