@@ -1,4 +1,4 @@
-import { useState  } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './Footer.module.scss';
 import Facebook from '../assets/images/facebook.svg';
 import LinkedIn from '../assets/images/linkedin.svg';
@@ -7,13 +7,22 @@ import Slo from '../assets/images/slo-logo.svg';
 import Sklad from '../assets/images/sklad-logo.svg';
 import Humanfrog from '../assets/images/humanfrog-logo.svg';
 import useWindowDimensions from '../misc/WindowDimensions.js';
+import { useLocation } from 'react-router-dom';
 
-function Footer({}){
+function Footer({ fromTop }){
   const { s_width } = useWindowDimensions();
   const [isChecked, setIsChecked] = useState(false);
+  const location = useLocation();
 
+  const [footerTop, setFooterTop] = useState(fromTop);
+
+  useEffect(() => {
+    setFooterTop(fromTop); 
+  }, [fromTop]);
+
+  if (!fromTop) return
   return (
-    <footer className={styles.footer}>
+    <footer className={styles.footer} style={{ top: `${footerTop}px` }}>
         
       <div className={styles.spacer}></div>
 

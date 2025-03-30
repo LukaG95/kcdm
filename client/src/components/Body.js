@@ -11,8 +11,9 @@ import NewsHighlighted from './news/NewsHighlighted.js';
 import NewsFull from './news/NewsFull.js';
 import NewsSmall from './news/NewsSmall.js';
 import EventSmall from './events/EventSmall.js';
+import Footer from './Footer';
 
-function Body() {
+function Body({appRef}) {
   const { s_width } = useWindowDimensions();
   const location = useLocation();
   const isHomePage = location.pathname === "/";
@@ -30,28 +31,7 @@ function Body() {
     if (location.pathname.startsWith('/pretekli-dogodki')) return 'Pretekli dogodki';
     return '';
   };
-
-
-  /*
-    /
-    no buttons
-    desktop: header page title
-    mobile: upper page title
-
-    /novice
-    desktop: header <- aktualno
-    mobile: upper <- aktualno
-    show page title
-
-    /novice/id
-    desktop: <- aktualno <- novice
-    mobile: <- novice
-    no page titles
-
-  */
-
   
-
   return (
     <main className={styles["news-page"]}>
       <header className={styles["news-header"]}>
@@ -117,7 +97,7 @@ function Body() {
         }
         
 
-        <div className={styles["news-wrapper"]} style={{transform: `translateY(${topOffset()})`}} >
+        <div className={styles["news-wrapper"]} style={{transform: `translateY(${topOffset()})`}} ref={appRef}>
         
           {isHomePage ? (
             // Home page
