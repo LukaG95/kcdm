@@ -32,13 +32,24 @@ function App() {
 
   // Top Footer offset
   useEffect(() => {
-    let x = setInterval(()=> {
-      if (appRef.current && appRef.current?.offsetTop && appRef.current?.offsetHeight && location.pathname){
+    const updateHeight = () => {
+      if (appRef.current) {
         const appBottom = appRef.current.offsetTop + appRef.current.offsetHeight;
         setAppHeight(appBottom + (location.pathname === "/novice" || location.pathname.includes("dogodki") ? 300 : 200));
-        clearInterval(x);
       }
-    }, 10)
+    };
+
+    // Create a ResizeObserver to watch for height changes
+    const observer = new ResizeObserver(updateHeight);
+
+    if (appRef.current) {
+      observer.observe(appRef.current);
+      updateHeight(); // Initial height calculation
+    }
+
+    return () => {
+      observer.disconnect(); // Clean up observer on unmount
+    };
   }, [s_width, location.pathname]);
 
   return (
