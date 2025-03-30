@@ -33,7 +33,7 @@ function App() {
   // Top Footer offset
   useEffect(() => {
     let x = setInterval(()=> {
-      if (appRef.current){
+      if (appRef.current && appRef.current?.offsetTop && appRef.current?.offsetHeight && location.pathname){
         const appBottom = appRef.current.offsetTop + appRef.current.offsetHeight;
         setAppHeight(appBottom + (location.pathname === "/novice" || location.pathname.includes("dogodki") ? 300 : 200));
         clearInterval(x);
