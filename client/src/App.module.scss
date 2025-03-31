@@ -3,10 +3,6 @@
   min-width: fit-content;
   width: 100%;
 
-
-/*     
-  margin-left: 100px;
-  margin-right: 100px; */
   margin-top: 55px;
 
   @media (max-width: 1050px) {
@@ -19,14 +15,4 @@
     margin-left: 0px;
     margin-right: 0px;
   }
-}
-
-.dimensions{
-  position: absolute;
-  top: 0;
-  left: 0;
-  color: yellow;
-  background-color: black;
-  padding: 10px;
-  z-index: 2;
 }

@@ -1,19 +1,18 @@
 import { Link, useLocation } from 'react-router-dom';
 import styles from './Body.module.scss';
-import useWindowDimensions from '../misc/WindowDimensions.js';
+import useWindowDimensions from '../hooks/WindowDimensions';
 import Stripes from '../assets/images/stripes.svg';
-import BackArrow from './BackArrow.js';
-import FrontArrow from './FrontArrow.js';
-import { newsData } from '../assets/data/newsData.js';
-import { eventsData } from '../assets/data/eventsData.js';
+import BackArrow from './BackArrow';
+import FrontArrow from './FrontArrow';
+import { newsData } from '../assets/data/newsData';
+import { eventsData } from '../assets/data/eventsData';
 
-import NewsHighlighted from './news/NewsHighlighted.js';
-import NewsFull from './news/NewsFull.js';
-import NewsSmall from './news/NewsSmall.js';
-import EventSmall from './events/EventSmall.js';
-import Footer from './Footer';
+import NewsHighlighted from './news/NewsHighlighted';
+import NewsFull from './news/NewsFull';
+import NewsSmall from './news/NewsSmall';
+import EventSmall from './events/EventSmall';
 
-function Body({appRef}) {
+function Body({ appRef }) {
   const { s_width } = useWindowDimensions();
   const location = useLocation();
   const isHomePage = location.pathname === "/";
@@ -33,8 +32,8 @@ function Body({appRef}) {
   };
   
   return (
-    <main className={styles["news-page"]}>
-      <header className={styles["news-header"]}>
+    <main className={styles.newsPage}>
+      <header className={styles.newsHeader}>
         <div className={`${styles.background} ${!isHomePage ? styles.fullWidth : ''}`}></div>
         <div className={styles.left}>
           <img 
@@ -45,21 +44,19 @@ function Body({appRef}) {
           <BackArrow route={"/"} name={"AKTUALNO"} mobile={false} isHomePage={isHomePage}/>
         </div>
         {
-          (s_width > 767 || location.pathname.startsWith('/novice')) && 
-            <div className={styles.right}>
-              {location.pathname.startsWith('/novice/') ? 
-                <BackArrow route={"/novice"} name={"NOVICE"} mobile={false} isHomePage={isHomePage} on_news={true}/>
-              :
+          <div className={styles.right}>
+            {location.pathname.startsWith('/novice/') ?
+              <BackArrow route={"/novice"} name={"NOVICE"} mobile={false} isHomePage={isHomePage} on_news={true}/>
+              : !(s_width <= 767 && isHomePage) &&
               <h1>{getPageTitle()}</h1>
-              }
-            </div>
+            }
+          </div>
         }
       </header>
 
-   
       { 
         (s_width <= 1050 && !location.pathname.startsWith('/novice/')) && 
-          <div className={styles["back-nav-or-title"]}>
+          <div className={styles.backNavOrTitle}>
             <div className={styles.spacer2}></div>
             { isHomePage ? 
               <h1>Aktualno</h1> :
@@ -68,7 +65,7 @@ function Body({appRef}) {
           </div>
       }
 
-      <div className={styles["bottom-layout"]}>
+      <div className={styles.bottomLayout}>
 
         { !(location.pathname.startsWith('/novice/') && s_width <= 767) &&
           <nav className={styles.nav}>
@@ -96,8 +93,7 @@ function Body({appRef}) {
           </nav>
         }
         
-
-        <div className={styles["news-wrapper"]} style={{transform: `translateY(${topOffset()})`}} ref={appRef}>
+        <div className={styles.newsWrapper} style={{transform: `translateY(${topOffset()})`}} ref={appRef}>
         
           {isHomePage ? (
             // Home page
@@ -108,7 +104,7 @@ function Body({appRef}) {
               ))
               }
               <section>
-                <div className={styles["section-aktualno"]}>
+                <div className={styles.sectionAktualno}>
                   <h2>AKTUALNO</h2>
                   <div className={styles.spacer}></div>
                   {
@@ -121,7 +117,7 @@ function Body({appRef}) {
                 {
                   s_width <= 561 && <div className={styles.spacer}></div>
                 }
-                <div className={styles["section-napovedujemo"]}>
+                <div className={styles.sectionNapovedujemo}>
                   <h2>NAPOVEDUJEMO</h2>
                   <div className={styles.spacer}></div>
                   {
@@ -151,12 +147,9 @@ function Body({appRef}) {
             // Past events page
             <></>
           ) : null}
-
         </div>
-        
       </div>
       
-     
       <div className={`${styles.spacer} ${!isHomePage ? styles.lessHeight : ''}`}></div>
     </main>
   );

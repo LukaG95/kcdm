@@ -3,13 +3,13 @@ import styles from './Header.module.scss';
 import LogoBig from '../assets/images/logo-big.svg';
 import LogoSmall from '../assets/images/logo-small.svg';
 import SearchIcon from '../assets/images/search-icon-green.png';
-import useWindowDimensions from '../misc/WindowDimensions.js';
+import useWindowDimensions from '../hooks/WindowDimensions.js';
 
 function Header({setIsNavMenuOpen}){
   const [hoveredItem, setHoveredItem] = useState('');
   const [activeItem, setActiveItem] = useState('AKTUALNO');
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const { s_width, s_height } = useWindowDimensions();
+  const { s_width } = useWindowDimensions();
 
   // This is for when the search bar will briefly appear on window width upsize
   const [isTransitionEnabled, setIsTransitionEnabled] = useState(true);
@@ -68,14 +68,13 @@ function Header({setIsNavMenuOpen}){
           :
           <img src={LogoSmall} alt="Small Logo" />
         }
-        
       </div>
 
       <nav className={styles.nav}>
         {
           s_width >= 900 &&
           <>
-            <div className={styles['line-with-arrow']}>
+            <div className={styles.lineWithArrow}>
               <div
                 className={styles.arrow}
                 style={{ top: getArrowTop() }}
@@ -115,8 +114,7 @@ function Header({setIsNavMenuOpen}){
           </>
         }
        
-
-        <div className={styles['extra-options']}>
+        <div className={styles.extraOptions}>
           {
             s_width >= 900 ? 
             <>
@@ -141,7 +139,6 @@ function Header({setIsNavMenuOpen}){
           
         </div>
       </nav>
-
 
     </header>
   );

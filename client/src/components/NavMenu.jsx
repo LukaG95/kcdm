@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import React from 'react';
 import styles from './Menu.module.scss';
 import SearchIcon from '../assets/images/search-icon-white.png';
 
@@ -7,7 +7,7 @@ const NavMenu = ({ isNavMenuOpen, setIsSearchMenuOpen, closeMenu }) => {
   return (
     <div className={`${styles.menu} ${isNavMenuOpen ? styles.open : ''}`}>
       <div className={styles.content}>
-        <div className={styles['close-button-wrapper']}>
+        <div className={styles.closeButtonWrapper}>
           <button className={styles.closeButton} onClick={closeMenu}>
             ✕
           </button>
@@ -22,7 +22,7 @@ const NavMenu = ({ isNavMenuOpen, setIsSearchMenuOpen, closeMenu }) => {
         </nav>
         <div href="#" className={styles['platform']}>PLATFORMA DNA</div>
         <div className={styles.spacer}></div>
-        <div className={styles['lang-search-wrapper']}>
+        <div className={styles.langSearchWrapper}>
           <p>SI</p>
           <p>EN</p>
           <img onClick={()=> setIsSearchMenuOpen(true)} src={SearchIcon} alt="Search" />

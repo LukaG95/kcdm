@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './EventSmall.module.scss';
 
 const EventSmall = ({ event }) => {
-
   return (
     <article className={styles.eventItem}>
       <h2 className={styles.location}>{event.location}</h2>

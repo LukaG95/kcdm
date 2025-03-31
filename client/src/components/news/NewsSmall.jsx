@@ -9,8 +9,7 @@ const NewsSmall = ({ news, useAnimation, big }) => {
   const linkStyle = useAnimation
     ? { background: `linear-gradient(to right, #4BAC87 ${gradientWidth}%, transparent ${gradientWidth}%)`,
     color: isHovered && '#FFFFFF',
-    textDecoration: isHovered && 'underline dotted #FFFFFF',
-    lineHeight: (isHovered && big) && '121%'}
+    textDecoration: isHovered && 'underline dotted #FFFFFF'}
     : {};
 
   return (

@@ -6,13 +6,12 @@ import Vimeo from '../assets/images/vimeo.svg';
 import Slo from '../assets/images/slo-logo.svg';
 import Sklad from '../assets/images/sklad-logo.svg';
 import Humanfrog from '../assets/images/humanfrog-logo.svg';
-import useWindowDimensions from '../misc/WindowDimensions.js';
-import { useLocation } from 'react-router-dom';
+import useWindowDimensions from '../hooks/WindowDimensions.js';
+import FrontArrow from './FrontArrow.jsx';
 
 function Footer({ fromTop }){
   const { s_width } = useWindowDimensions();
   const [isChecked, setIsChecked] = useState(false);
-  const location = useLocation();
 
   const [footerTop, setFooterTop] = useState(fromTop);
 
@@ -36,7 +35,6 @@ function Footer({ fromTop }){
             <a className={styles.icon}><img style={{marginTop: "3px", marginRight: "2px"}} src={Vimeo} alt="Vimeo" /></a>
           </div>
         </div>
-
         
         <div className={styles.newsletter}>
           <h3 className={styles.title}>NAROČITE SE NA NAŠE E-NOVICE</h3>
@@ -46,7 +44,7 @@ function Footer({ fromTop }){
               placeholder="Vnesite svoj e-naslov" 
               className={styles.inputField}
             />
-            <button className={styles.submitButton}>→</button>
+            <FrontArrow isAbsolute={true} />
           </div>
           <label className={styles.termsCheckbox} onClick={() => setIsChecked(!isChecked)}>
             <div className={`${styles.checkbox} ${isChecked ? styles.checked : ""}`}>
@@ -89,7 +87,6 @@ function Footer({ fromTop }){
       </div>
 
     </footer>
-
   );
 };
 

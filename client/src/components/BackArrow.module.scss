@@ -1,3 +1,5 @@
+@import '../styles/variables';
+
 .backLink {
   position: absolute;
   top: 50px;
@@ -31,20 +33,20 @@
       height: 0;
       border-style: solid;
       border-width: 4px 7px 4px 0;
-      border-color: transparent #4BAC87 transparent transparent; 
+      border-color: transparent $primary-green transparent transparent; 
     }
 
     .arrowLine{
       width: 15px;
-      background-color: #4BAC87;
+      background-color: $primary-green;
     }
     .text{
-      color: #4BAC87;
-      border-bottom: 1px dotted #4BAC87;
+      color: $primary-green;
+      border-bottom: 1px dotted $primary-green;
     }
   }
 
-  &.on-news-page{
+  &.onNewsPage{
     left: 340px;
   }
 
@@ -79,12 +81,11 @@
   letter-spacing: 0.05em;
   border-bottom: 1px dotted white;
   line-height: 1.1;
-
 }
 
 @media (max-width: 1050px) {    
   .backLink{
-    &.on-news-page{
+    &.onNewsPage{
       top: unset;
       left: 70px;
     }
@@ -93,7 +94,7 @@
 
 @media (max-width: 767px) {    
   .backLink{
-    &.on-news-page{
+    &.onNewsPage{
       top: 40px;
       left: 20px;
     }

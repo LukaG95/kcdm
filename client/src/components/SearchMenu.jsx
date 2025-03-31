@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import React from 'react';
 import styles from './Menu.module.scss';
 import SearchIcon from '../assets/images/search-icon-white.png';
 
@@ -7,7 +7,7 @@ const SearchMenu = ({ isSearchMenuOpen, closeMenu }) => {
   return (
       <div className={`${styles.menu} ${isSearchMenuOpen ? styles.open : ''}`}>
         <div className={styles.content}>
-          <div className={styles['close-button-wrapper']}>
+          <div className={styles.closeButtonWrapper}>
             <button className={styles.closeButton} onClick={closeMenu}>
               ✕
             </button>
@@ -18,7 +18,7 @@ const SearchMenu = ({ isSearchMenuOpen, closeMenu }) => {
             <img onClick={closeMenu} src={SearchIcon} alt="Search" />
           </div>
   
-          <div className={styles['line-with-arrow']}></div>
+          <div className={styles.lineWithArrow}></div>
         </div>
       </div>
     );

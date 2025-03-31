@@ -2,17 +2,15 @@ import { useState, useEffect, useRef  } from 'react';
 import { BrowserRouter as Router, useLocation } from 'react-router-dom';
 import styles from './App.module.scss';
 
-import 'react-toastify/dist/ReactToastify.css';
-import useWindowDimensions from './misc/WindowDimensions';
+import useWindowDimensions from './hooks/WindowDimensions';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Body from './components/Body';
 import NavMenu from './components/NavMenu';
 import SearchMenu from './components/SearchMenu';
-import {  } from 'react-router-dom';
 
 function App() {
-  const { s_width, s_height } = useWindowDimensions();
+  const { s_width } = useWindowDimensions();
   const [isNavMenuOpen, setIsNavMenuOpen] = useState(false);
   const [isSearchMenuOpen, setIsSearchMenuOpen] = useState(false);
   const [appHeight, setAppHeight] = useState(0);
@@ -24,13 +22,19 @@ function App() {
     setIsSearchMenuOpen(false);
   }
 
+  // Close side menu on window resize
   useEffect(() => {
-    if (s_width > 900) {
-      closeMenu()
-    }
+    if (s_width > 900) closeMenu()
   }, [s_width]);
 
-  // Top Footer offset
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }, [location.pathname]);
+
+  // Top Footer offset observer
   useEffect(() => {
     const updateHeight = () => {
       if (appRef.current) {
@@ -39,23 +43,21 @@ function App() {
       }
     };
 
-    // Create a ResizeObserver to watch for height changes
     const observer = new ResizeObserver(updateHeight);
 
     if (appRef.current) {
       observer.observe(appRef.current);
-      updateHeight(); // Initial height calculation
+      updateHeight(); 
     }
 
     return () => {
-      observer.disconnect(); // Clean up observer on unmount
+      observer.disconnect();
     };
   }, [s_width, location.pathname]);
 
   return (
     <>
       <div className={styles.app}>
-        <div className={styles.dimensions}>{s_width}</div>
         <Header s_width={s_width} setIsNavMenuOpen={setIsNavMenuOpen}/>
         <Body appRef={appRef}/>
       </div>

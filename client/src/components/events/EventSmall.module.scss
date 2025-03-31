@@ -1,3 +1,5 @@
+@import '../../styles/variables';
+
 .eventItem{ 
   .location{
     font-weight: 950;
@@ -8,7 +10,6 @@
 
     color: #3D5F52;
   }
-
   
   time{
     font-weight: 400;
@@ -22,7 +23,6 @@
     margin-bottom: 35px;
   }
 
-
   .title {
     font-family: 'Georgia';
     font-style: normal;
@@ -30,10 +30,10 @@
     font-size: 20px;
     line-height: 120%;
 
-    color: #4BAC87;
+    color: $primary-green;
     margin-top: 5px;
 
-    text-decoration: underline dotted #4BAC87;
+    text-decoration: underline dotted $primary-green;
     cursor: pointer;
   }
 
@@ -45,7 +45,6 @@
     margin-top: 20px;
     margin-bottom: 10px;
   }
-  
 }
 
   

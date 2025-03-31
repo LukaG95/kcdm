@@ -1,3 +1,5 @@
+@import '../../styles/variables';
+
 .newsItem{ 
   display: flex;
   flex-direction: column;
@@ -17,15 +19,14 @@
     font-size: 52px;
     letter-spacing: -0.02em; 
     line-height: 90%;
-    color: #4BAC87;
+    color: $primary-green;
 
     margin-bottom: 20px;
   }
  
   .newsTitleLink {
-    text-decoration: underline dotted #4BAC87;
+    text-decoration: underline dotted $primary-green;
     color: inherit; 
-    
   }
 
   > time{
@@ -55,7 +56,7 @@
     width: auto;
     padding-left: 30px;
     height: 1px;
-    background: #4BAC87;
+    background: $primary-green;
   }
 
   @media (max-width: 1050px) {    
@@ -74,4 +75,3 @@
     }
   }
 }
-

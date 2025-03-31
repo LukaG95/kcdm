@@ -1,3 +1,4 @@
+@import '../styles/variables';
 
 .menu {
   position: fixed;
@@ -10,7 +11,7 @@
   width: 100%;
   height: 100vh;
 
-  background-color: #4BAC87; 
+  background-color: $primary-green; 
 
   z-index: 5;
   transition: right 0.3s ease-out;
@@ -26,7 +27,7 @@
     flex-direction: column;
     width: 259px;
 
-    .close-button-wrapper{
+    .closeButtonWrapper{
       position: relative;
       height: 121px;
 
@@ -70,8 +71,6 @@
         cursor: pointer;
       }
     }
-    
-
   }
 
   ul{
@@ -118,20 +117,19 @@
 
     &:hover {
       cursor: pointer;
-      /* color: #318565;
-      border-color: #318565; */
     }
   }
 
   .spacer{
-    background: #318565;
+    background: $primary-dark-green;
 
     width: 100%;
     height: 1px;
 
     margin-top: 26px;
   }
-  .lang-search-wrapper{
+
+  .langSearchWrapper{
     position: relative;
     display: flex;
     margin-top: 20px;
@@ -181,7 +179,7 @@
   transform-origin: center center;
 
   z-index: 2;
-  background: #4BAC87;
+  background: $primary-green;
   left: 1px;
   
   transform-style: preserve-3d; // rotate caused some discoloring
