@@ -28,7 +28,7 @@ const NavMenu = ({ isNavMenuOpen, setIsSearchMenuOpen, closeMenu }) => {
           <img onClick={()=> setIsSearchMenuOpen(true)} src={SearchIcon} alt="Search" />
         </div>
 
-        <div className={styles['line-with-arrow']}>
+        <div className={styles.lineWithArrow}>
           <div className={styles.arrow}></div>
         </div>
       </div>
